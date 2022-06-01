@@ -1,0 +1,86 @@
+{% load crispy_forms_tags %}
+<!DOCTYPE html>
+<html lang="en" dir="ltr">
+
+<head>
+
+  <meta charset="utf-8">
+  <title>update</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+  <script src="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/js/bootstrap.min.js"></script>
+  <!--style-->
+  <style>
+  .card {
+
+   box-shadow: 0 4px 8px 0 rgba(0,0,0,0.9),
+               0 6px 20px 0 rgba(0,0,0,0.39);
+   background: skyblue;
+   margin-bottom : 5%;
+   border-radius: 25px;
+   padding : 2%;
+   overflow: auto;
+   resize: both;
+   text-overflow: ellipsis;
+  }
+  .card:hover{
+    background: lightblue;
+  }
+
+  .submit_form{
+
+    text-align: center;
+    padding: 3%;
+    background: skyblue;
+    border-radius: 25px;
+    box-shadow: 0 4px 8px 0 rgba(0,0,0,0.6),
+                0 6px 20px 0 rgba(0,0,0,0.36);
+  }
+  </style>
+
+</head>
+
+<body  class="container-fluid">
+    <br>
+    <br>
+    <br>
+
+    <div class="col-md-1"> </div>
+    <div class="col-md-6" >
+        <div class="submit_form">
+            <br/><br/><h1>Update Details</h1><br/><br/>
+            <form action="/update/{{obj.ID}}" method="POST">
+                {% csrf_token %}
+                <tr>
+                    <td> Question</td>
+                    <td><input type="text" name="Question" value={{obj.Question}}></td>
+                </tr><br/><br/>
+                <tr>
+                    <td> Option1</td>
+                    <td><input type="text" name="Option1" value={{obj.Option1}}></td>
+                </tr><br/><br/>
+                <tr>
+                    <td>Option2</td>
+                    <td><input type="text" name='Option2' value={{obj.Option2}}></td>
+                </tr><br/><br/>
+                <tr>
+                    <td>Option3</td>
+                    <td><input type="text" name='Option3' value={{obj.Option3}}></td>
+                </tr><br/><br/>
+                <tr>
+                    <td>Option4</td>
+                    <td><input type="text" name='Option4' value={{obj.Option4}}></td>
+                </tr><br/><br/>
+                <tr>
+                    <td>Correct Answer</td>
+                    <td><input type="text" name='Correctans' value={{obj.Correctans}}></td>
+                </tr><br/><br/>
+                <tr>
+                    <td> <input type="submit" class="btn btn-dark" value="submit" /></td>
+                </tr>
+            </form>
+    </div>
+  </div>
+ 
+</body>
